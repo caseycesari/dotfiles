@@ -1,0 +1,33 @@
+set nocursorline " don't highlight current line
+
+" In MacVim, you can have multiple tabs open. This mapping makes
+" ctrl-tab switch between them, like browser tabs.
+" I don't think it matters whether I use noremap or map, unless
+" :tabnext gets bound to something else, which would be weird.
+noremap <c-tab> :tabnext<cr>
+noremap <c-s-tab> :tabprevious<cr>
+
+" Move tabs with the arrow keys
+noremap <D-M-Right> :tabnext<cr>
+noremap <D-M-Left> :tabprevious<cr>
+
+" Learn hjkl
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" Set font
+set guifont=Monaco:h16
+
+" keyboard shortcuts
+inoremap jj <ESC>
+
+" gui settings
+if (&t_Co == 256 || has('gui_running'))
+  if ($TERM_PROGRAM == 'iTerm.app')
+    colorscheme solarized
+  else
+    colorscheme desert
+  endif
+endif
