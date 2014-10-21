@@ -1,0 +1,20 @@
+[user]
+    name = Casey Thomas
+[push]
+    default = tracking
+[alias]
+    co = checkout
+    cob = checkout -b
+    c = commit
+    ca = commit --amend
+    st = status
+    br = branch
+    rb = rebase -i
+    undo = reset --soft HEAD^
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+[core]
+    excludesfile = path/to/.global_gitignore
+[branch]
+    autosetuprebase = always
