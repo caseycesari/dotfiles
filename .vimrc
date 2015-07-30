@@ -44,7 +44,7 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 set nocursorline                                             " don't highlight current line
-inoremap jj <ESC>                                            " jj quits insert mode
+inoremap jj <ESC>
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -133,14 +133,8 @@ nnoremap td  :tabclose<CR>
 set anti enc=utf-8
 set guifont=Source\ Code\ Pro:h15
 
-""" Colors
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-let base16colorspace=256
 set background=dark
-"colorscheme base16-railscast
+colorscheme base16-railscasts
 
 """ Syntastic
 " source: https://gist.github.com/mmcfarland/5506869

@@ -1,5 +1,6 @@
 [user]
     name = Casey Thomas
+    email = cthomas@azavea.com
 [push]
     default = tracking
 [alias]
@@ -16,5 +17,23 @@
     dump = cat-file -p
 [core]
     excludesfile = path/to/.global_gitignore
+	editor = vim
 [branch]
     autosetuprebase = always
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
