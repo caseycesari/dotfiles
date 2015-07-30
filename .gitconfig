@@ -17,7 +17,7 @@
     dump = cat-file -p
 [core]
     excludesfile = path/to/.global_gitignore
-	editor = vim
+    editor = vim
 [branch]
     autosetuprebase = always
 [color]
