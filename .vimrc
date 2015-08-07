@@ -133,8 +133,10 @@ nnoremap td  :tabclose<CR>
 set anti enc=utf-8
 set guifont=Source\ Code\ Pro:h15
 
+""" Theme
 set background=dark
 colorscheme base16-railscasts
+let base16colorspace=256
 
 """ Syntastic
 " source: https://gist.github.com/mmcfarland/5506869
@@ -145,3 +147,6 @@ let g:syntastic_warning_symbol='>'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=4
 map <F2> :SyntasticToggleMode<CR>
+
+""" Ctrl+P
+let g:ctrlp_custom_ignore = 'node_modules'  " Ignore node_modules folder
