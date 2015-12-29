@@ -95,10 +95,11 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd VimResized * :wincmd =
 
 " filetype spacing settings
-autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype html setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
 
 " Fix Cursor in TMUX
 if exists('$TMUX')
@@ -131,17 +132,21 @@ nnoremap td  :tabclose<CR>
 
 """ Font
 set anti enc=utf-8
-set guifont=Source\ Code\ Pro:h15
+set guifont=Source\ Code\ Pro:h17
 
 """ Theme
-set background=dark
-colorscheme base16-railscasts
 let base16colorspace=256
+set t_Co=256
+set background=dark
+colorscheme base16-tomorrow
 
 """ Syntastic
 " source: https://gist.github.com/mmcfarland/5506869
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_javascript_checkers=['jshint']
+""" let g:syntastic_javascript_checkers=['eslint']
+au BufRead,BufNewFile *.json set filetype=json
+let g:syntastic_json_checkers=['jsonlint']
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='>'
 let g:syntastic_auto_loc_list=1
