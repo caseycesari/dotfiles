@@ -140,11 +140,21 @@ set t_Co=256
 set background=dark
 colorscheme base16-tomorrow
 
+""" No bells
+set noerrorbells
+set novisualbell
+set t_vb=
+autocmd! GUIEnter * set vb t_vb=
+
+""" Ctrl+p config
+let g:ctrlp_show_hidden=1
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/dist/*,*/.vagrant/*
+
 """ Syntastic
 " source: https://gist.github.com/mmcfarland/5506869
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_javascript_checkers=['jshint']
-""" let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_checkers=['eslint', 'flow']
+" let g:syntastic_javascript_checkers=['jshint']
 au BufRead,BufNewFile *.json set filetype=json
 let g:syntastic_json_checkers=['jsonlint']
 let g:syntastic_error_symbol='✗'
