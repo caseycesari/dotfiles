@@ -52,25 +52,6 @@ if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
 endif
 
-" keyboard shortcuts
-let mapleader = ','
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <leader>l :Align
-nmap <leader>a :Ack
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>d :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
-nmap <leader>t :CtrlP<CR>
-nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-nmap <leader>] :TagbarToggle<CR>
-nmap <leader><space> :call whitespace#strip_trailing()<CR>
-nmap <leader>g :GitGutterToggle<CR>
-nmap <leader>c <Plug>Kwbd
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
@@ -95,7 +76,7 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd VimResized * :wincmd =
 
 " filetype spacing settings
-autocmd Filetype html setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
@@ -110,35 +91,13 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-""" Tabs
-" source: http://vim.wikia.com/wiki/Using_tab_pages
-" Tab navigation like firefox (for GVIM)
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
-
-" Vim tab navigation
-nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap tn  :tabnext<Space>
-nnoremap tm  :tabm<Space>
-nnoremap td  :tabclose<CR>
-
 """ Font
 set anti enc=utf-8
 set guifont=Source\ Code\ Pro:h17
 
 """ Theme
-let base16colorspace=256
-set t_Co=256
 set background=dark
-colorscheme base16-tomorrow
+colorscheme tomorrow-night-bright
 
 """ No bells
 set noerrorbells
@@ -149,12 +108,12 @@ autocmd! GUIEnter * set vb t_vb=
 """ Ctrl+p config
 let g:ctrlp_show_hidden=1
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/dist/*,*/.vagrant/*
+let g:ctrlp_custom_ignore = 'node_modules'  " Ignore node_modules folder
 
 """ Syntastic
 " source: https://gist.github.com/mmcfarland/5506869
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_javascript_checkers=['eslint', 'flow']
-" let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_javascript_checkers=['eslint']
 au BufRead,BufNewFile *.json set filetype=json
 let g:syntastic_json_checkers=['jsonlint']
 let g:syntastic_error_symbol='✗'
@@ -162,6 +121,3 @@ let g:syntastic_warning_symbol='>'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=4
 map <F2> :SyntasticToggleMode<CR>
-
-""" Ctrl+P
-let g:ctrlp_custom_ignore = 'node_modules'  " Ignore node_modules folder
