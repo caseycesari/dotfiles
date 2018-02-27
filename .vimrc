@@ -1,3 +1,5 @@
+set shell=/bin/bash
+
 """ Vundle setup
 " source: https://github.com/gmarik/Vundle.vim
 set nocompatible              " be iMproved, required
@@ -81,6 +83,8 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype xml setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype typescript setlocal ts=2 sts=2 sw=2 expandtab
 
 " Fix Cursor in TMUX
 if exists('$TMUX')
@@ -114,6 +118,7 @@ let g:ctrlp_custom_ignore = 'node_modules'  " Ignore node_modules folder
 " source: https://gist.github.com/mmcfarland/5506869
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_typescript_checkers=['tslint']
 au BufRead,BufNewFile *.json set filetype=json
 let g:syntastic_json_checkers=['jsonlint']
 let g:syntastic_error_symbol='✗'
@@ -121,3 +126,9 @@ let g:syntastic_warning_symbol='>'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=4
 map <F2> :SyntasticToggleMode<CR>
+
+""" Ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
+set shellpipe=>  " Prevent search results from appearing in terminal
+" let g:ack_autoclose=1  " Close results window
+let g:ackhighlight = 1  " Highlight search term in results window
